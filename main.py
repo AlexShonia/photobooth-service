@@ -20,7 +20,7 @@ async def print_images(
     image_bytes = await image.read()
 
     for _ in range(amount):
-        print_image(image_bytes, amount)
+        print_image(image_bytes)
 
     return {"status": "success"}
 

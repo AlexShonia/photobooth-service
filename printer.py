@@ -7,7 +7,7 @@ if sys.platform == "win32":
     import win32ui
 
 
-def print_image(image_bytes, doc_name="Image Print"):
+def print_image(image_bytes):
     try:
         if sys.platform != "win32":
             print(f"🖨️ Skipping print (not on Windows)")
@@ -36,7 +36,7 @@ def print_image(image_bytes, doc_name="Image Print"):
         img = img.resize((paper_width, paper_height), Image.LANCZOS)
 
         # Start print job
-        hDC.StartDoc(doc_name)
+        hDC.StartDoc("Image")
         hDC.StartPage()
 
         dib = ImageWin.Dib(img)
