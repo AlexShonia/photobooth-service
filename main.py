@@ -1,8 +1,7 @@
-from typing import Union
-
 from fastapi import FastAPI, File, Form, UploadFile
 
 from printer import print_image
+from pos import run_pos_payment
 
 app = FastAPI()
 
@@ -26,6 +25,7 @@ async def print_images(
 
 
 @app.post("/pos-terminal-payment/")
-async def pos_terminal_payment():
+async def pos_terminal_payment(amount: float):
+    result = run_pos_payment(amount)
 
     return {"status": "success"}
